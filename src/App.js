@@ -7,7 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import EditOrg from './Components/Edit';
 
 function App() {
-<BrowserRouter>
+  return (
+    <BrowserRouter>
       <Navbar />
       <Routes>
         <Route exact path="/" element={<Table />} />
@@ -16,6 +17,6 @@ function App() {
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
+  );
 }
-
 export default App;
