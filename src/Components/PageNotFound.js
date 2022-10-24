@@ -8,9 +8,8 @@ const PageNotFound = () => {
         <div className="col-12 mt-5 mx-5">
           <h1>404 Error Page</h1>
           <p>Sorry, This page doesn't exist</p>
-          <NavLink className="btn btn-info" to="/">
-            {" "}
-            Go Back{" "}
+          <NavLink className="btn btn-info mb-4" to="/">
+            Go Back
           </NavLink>
         </div>
       </div>
