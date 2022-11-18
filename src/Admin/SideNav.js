@@ -14,7 +14,7 @@ const SideNav = () => {
             className="brand-image img-circle elevation-3"
             style={{ opacity: ".8" }}
           />
-          <span className="brand-text font-weight-light">Riz Solution</span>
+          <span className="brand-text font-weight-light">Riz Solutions</span>
         </Link>
         {/* Sidebar */}
         <div className="sidebar">
@@ -63,7 +63,7 @@ const SideNav = () => {
                 <a href="#" className="nav-link active">
                   <i className="nav-icon fas fa-tachometer-alt" />
                   <p>
-                    Dashboard
+                    Organization
                     <i className="right fas fa-angle-left" />
                   </p>
                 </a>
@@ -81,14 +81,45 @@ const SideNav = () => {
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <a href="./index3.html" className="nav-link">
+                    <Link to="/edit" className="nav-link">
                       <i className="far fa-circle nav-icon" />
-                      <p>Dashboard v3</p>
-                    </a>
+                      <p>Edit a User</p>
+                    </Link>
                   </li>
                 </ul>
               </li>
-              <li className="nav-item">
+
+              {/*Customers details*/}
+              <li className="nav-item menu-open">
+                <a href="#" className="nav-link active">
+                  <i className="nav-icon fas fa-tachometer-alt" />
+                  <p>
+                    Customers
+                    <i className="right fas fa-angle-left" />
+                  </p>
+                </a>
+                <ul className="nav nav-treeview">
+                  <li className="nav-item">
+                    <Link to="/customers" className="nav-link active">
+                      <i className="far fa-circle nav-icon" />
+                      <p>Customers List</p>
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to="/addcust" className="nav-link">
+                      <i className="far fa-circle nav-icon" />
+                      <p>Add Cutomer</p>
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to="/editcust" className="nav-link">
+                      <i className="far fa-circle nav-icon" />
+                      <p>Edit Customer</p>
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+              {/* <li className="nav-item">
                 <a href="pages/widgets.html" className="nav-link">
                   <i className="nav-icon fas fa-th" />
                   <p>
@@ -96,7 +127,7 @@ const SideNav = () => {
                     <span className="right badge badge-danger">New</span>
                   </p>
                 </a>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <a href="#" className="nav-link">
                   <i className="nav-icon fas fa-copy" />
@@ -272,13 +303,13 @@ const SideNav = () => {
                 </ul>
               </li>
               <li className="nav-item">
-                <a href="#" className="nav-link">
+                <Link to="/form" className="nav-link">
                   <i className="nav-icon fas fa-edit" />
                   <p>
                     Forms
                     <i className="fas fa-angle-left right" />
                   </p>
-                </a>
+                </Link>
                 <ul className="nav nav-treeview">
                   <li className="nav-item">
                     <a href="pages/forms/general.html" className="nav-link">

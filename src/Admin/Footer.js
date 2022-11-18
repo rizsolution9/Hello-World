@@ -6,11 +6,13 @@ const Footer = () => {
     <div>
       <footer className="main-footer">
         <strong>
-          Copyright © 2022 <Link to="/">Riz Solution</Link><br></br>
+          Copyright © 2022 <Link to="/">Riz Solutions</Link>{" "}
+          <b>'The Solutions Provider'</b>
+          <br></br>
         </strong>
         All rights reserved.
         <div className="float-right d-none d-sm-inline-block">
-          <b>Made By Riz Solution Team</b>
+          <b>Made By Riz Solutions Team</b>
         </div>
       </footer>
     </div>

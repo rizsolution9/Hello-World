@@ -1,6 +1,9 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { addMsgToHeader } from "../Store/CustomerReducer";
 
 const Home = () => {
+  const dispatch = useDispatch();
   return (
     <div>
       <div className="content-wrapper">
@@ -23,6 +26,7 @@ const Home = () => {
               {/* /.col */}
             </div>
             {/* /.row */}
+        <button onClick={() => dispatch(addMsgToHeader())} className="btn btn-primary">Add Msg</button>
           </div>
           {/* /.container-fluid */}
         </div>

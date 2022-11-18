@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Organizations } from "../APIS/OrganizationAPI"
+import { Customers } from "../../APIS/CustomerAPIs";
 
-export default function Table() {
+export default function CustomersTable() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    Organizations()
+    Customers()
       .then((obj) => {
         setData(obj.data.data);
       })
@@ -27,7 +27,7 @@ export default function Table() {
           <div className="container-fluid">
             <div className="row mb-2">
               <div className="col-sm-6 mt-4">
-                <h1>DataTables</h1>
+                <h1>Customers</h1>
               </div>
               <div className="col-sm-6">
                 <ol className="breadcrumb float-sm-right">
@@ -47,8 +47,8 @@ export default function Table() {
             <div className="row">
               <div className="col-12">
                 <p align="right">
-                  <Link className="btn btn-primary" to="/add">
-                    Add Organization
+                  <Link className="btn btn-primary" to="/addcust">
+                    Add Customers
                   </Link>
                 </p>
                 <div className="card">
@@ -63,13 +63,16 @@ export default function Table() {
                     >
                       <thead>
                         <tr>
-                          <th>ID No.</th>
-                          <th>Org Name</th>
-                          <th>Owner Name</th>
-                          <th>Owner Email</th>
-                          <th>Owner Contact</th>
-                          <th>Solution Type</th>
-                          <th>Action</th>
+                          <th>Customer Id</th>
+                          <th>Name</th>
+                          <th>CNIC</th>
+                          <th>NTN</th>
+                          <th>Email</th>
+                          <th>Contact No.</th>
+                          <th>Residential Address</th>
+                          <th>Province</th>
+                          <th>City</th>
+                          <th>Actions</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -77,15 +80,18 @@ export default function Table() {
                           return (
                             <tr>
                               <td>{value.Id}</td>
-                              <td>{value.OrgName}</td>
-                              <td>{value.OwnerName}</td>
-                              <td>{value.OwnerEmail}</td>
-                              <td>{value.OwnerContact}</td>
-                              <td>{value.SolutionType}</td>
+                              <td>{value.Name}</td>
+                              <td>{value.Cnic}</td>
+                              <td>{value.Ntn}</td>
+                              <td>{value.EmailAddress}</td>
+                              <td>{value.Contact}</td>
+                              <td>{value.Address}</td>
+                              <td>{value.Province}</td>
+                              <td>{value.City}</td>
                               <td>
                                 <Link
                                   className="btn btn-primary m-2"
-                                  to="/edit"
+                                  to="/editcust"
                                 >
                                   Edit
                                 </Link>
