@@ -1,3 +1,4 @@
+import React from "react";
 import "./App.css";
 import SideNav from "./Admin/SideNav";
 import Header from "./Admin/Header";
@@ -10,7 +11,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import EditOrg from './Components/EditOrg';
 import Form from "./Admin/Form";
 import AddOrg from "./Components/AddOrg";
-import CustomersTable from "./Components/Customers/CustomerList";
+import CustomerController from "./Components/Customers/CustomerController";
 import AddCustomer from "./Components/Customers/AddCustomer";
 import EditCustomer from "./Components/Customers/EditCustomer";
 // import Login from "./Admin/Login";
@@ -27,7 +28,7 @@ function App() {
         <Route exact path="/edit" element={<EditOrg />} />
         <Route exact path="/form" element={<Form/>} />
         <Route path="*" element={<PageNotFound />} />
-        <Route path="/customers" element={<CustomersTable />} />
+        <Route path="/customers" element={<CustomerController />} />
         <Route path="/addcust" element={<AddCustomer />} />
         <Route path="/editcust" element={<EditCustomer />} />
       </Routes>

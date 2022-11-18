@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Customers } from "../../APIS/CustomerAPIs";
 
-export default function CustomersTable() {
+export default function CustomerList(props) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -13,15 +13,29 @@ export default function CustomersTable() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [props.testArray]);
 
   function deleteUser() {
-    alert("Are You Sure?");
+    let testArray = props.testArray;
+    testArray.push("Customer 3");
+    props.setTestArray(testArray)
+    // alert("Are You Sure?");
   }
 
   return (
     <div>
+
       <div className="content-wrapper">
+      <div>
+        <h1>Props Values</h1>
+        <div>{props.HaiderValue}</div>
+        <div>{props.testArray}</div>
+        <div><button onClick={()=> {
+           let testArray = props.testArray;
+           testArray.push("Customer 3");
+           props.setTestArray(testArray);
+        }}>Add new customer</button></div>
+      </div>
         {/* Content Header (Page header) */}
         <section className="content-header">
           <div className="container-fluid">
