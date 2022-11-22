@@ -2,33 +2,28 @@ import React, { useState, useEffect } from "react";
 import CustomerList from "./CustomerList";
 import CustomerAddEdit from "./CustomersAddEdit";
 import { Customers } from "../../APIS/CustomerAPIs";
+import PageMode from "../../Helpers/AppConstants";
 
 const CustomerController = () => {
-  const [Ui, setUi] = useState(1);
-  const [Data, setData] = useState([]);
+  const [pageMode, setpageMode] = useState(PageMode.LIST);
+  const [list, setList] = useState([]);
 
   useEffect(() => {
     Customers()
       .then((obj) => {
-        setData(obj.data.data);
+        setList(obj.data.data);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
-
-  const Add = () => {
-    setUi(2);
-  };
-  const Back = () => {
-    setUi(1);
-  };
+  
   return (
     <div>
-      {Ui === 1 ? (
-        <CustomerList Data={Data} Add={Add} />
-      ) : Ui === 2 ? (
-        <CustomerAddEdit Back={Back} />
+      {pageMode === PageMode.LIST ? (
+        <CustomerList List={list} setPageMode={setpageMode} />
+      ) : pageMode === PageMode.ADD ? (
+        <CustomerAddEdit setPageMode={setpageMode} />
       ) : (
         <h1>Edit Form</h1>
       )}

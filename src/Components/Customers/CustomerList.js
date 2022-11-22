@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PageMode from "../../Helpers/AppConstants";
 
 export default function CustomerList(props) {
   function deleteUser() {
@@ -36,7 +37,7 @@ export default function CustomerList(props) {
             <div className="row">
               <div className="col-12">
                 <p align="right">
-                  <Link className="btn btn-primary" onClick={props.Add}>
+                  <Link className="btn btn-primary" onClick={()=>props.setPageMode(PageMode.ADD)}>
                     Add Customers
                   </Link>
                 </p>
@@ -65,7 +66,7 @@ export default function CustomerList(props) {
                         </tr>
                       </thead>
                       <tbody>
-                        {props.Data.map((value, index, array) => {
+                        {props.List.map((value, index, array) => {
                           return (
                             <tr>
                               <td>{value.id}</td>

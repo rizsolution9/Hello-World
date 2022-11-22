@@ -3,6 +3,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { signUpSchema } from "../../Schema/CustomerValidation";
+import PageMode from "../../Helpers/AppConstants";
 
 const initialValues = {
   Name: "",
@@ -297,7 +298,7 @@ const CustomerAddEdit = (props) => {
             <button type="submit" className="btn btn-primary float-right mx-2">
               Add
             </button>
-            <button type="submit" onClick={props.Back} className="btn btn-default float-right">
+            <button type="submit" onClick={()=>props.setPageMode(PageMode.LIST)} className="btn btn-default float-right">
               Cancel
             </button>
           </div>
