@@ -14,7 +14,7 @@ const SideNav = () => {
             className="brand-image img-circle elevation-3"
             style={{ opacity: ".8" }}
           />
-          <span className="brand-text font-weight-light">Riz Solutions</span>
+          <span className="brand-text font-weight-light"><b>Riz Solutions</b></span>
         </Link>
         {/* Sidebar */}
         <div className="sidebar">
@@ -22,7 +22,7 @@ const SideNav = () => {
           <div className="user-panel mt-3 pb-3 mb-3 d-flex">
             <div className="image">
               <img
-                src="dist/img/CC_20221024_154001.png"
+                src="dist/img/UserImage.png"
                 className="img-circle elevation-2"
                 alt="User Image"
               />
@@ -90,34 +90,11 @@ const SideNav = () => {
               </li>
 
               {/*Customers details*/}
-              <li className="nav-item menu-open">
-                <a href="#" className="nav-link active">
-                  <i className="nav-icon fas fa-tachometer-alt" />
-                  <p>
-                    Customers
-                    <i className="right fas fa-angle-left" />
-                  </p>
-                </a>
-                <ul className="nav nav-treeview">
-                  <li className="nav-item">
-                    <Link to="/customers" className="nav-link active">
-                      <i className="far fa-circle nav-icon" />
-                      <p>Customers List</p>
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to="/addcust" className="nav-link">
-                      <i className="far fa-circle nav-icon" />
-                      <p>Add Cutomer</p>
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to="/editcust" className="nav-link">
-                      <i className="far fa-circle nav-icon" />
-                      <p>Edit Customer</p>
-                    </Link>
-                  </li>
-                </ul>
+              <li className="nav-item">
+                <Link to="/customers" className="nav-link">
+                  <i className="fas fa-circle nav-icon" />
+                  <p>Customers</p>
+                </Link>
               </li>
               {/* <li className="nav-item">
                 <a href="pages/widgets.html" className="nav-link">

@@ -1,47 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { Customers } from "../../APIS/CustomerAPIs";
 
 export default function CustomerList(props) {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    Customers()
-      .then((obj) => {
-        setData(obj.data.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [props.testArray]);
-
   function deleteUser() {
-    let testArray = props.testArray;
-    testArray.push("Customer 3");
-    props.setTestArray(testArray)
-    // alert("Are You Sure?");
+    alert("Are You Sure?");
   }
 
   return (
-    <div>
-
-      <div className="content-wrapper">
+    <div className="content-wrapper">
       <div>
-        <h1>Props Values</h1>
-        <div>{props.HaiderValue}</div>
-        <div>{props.testArray}</div>
-        <div><button onClick={()=> {
-           let testArray = props.testArray;
-           testArray.push("Customer 3");
-           props.setTestArray(testArray);
-        }}>Add new customer</button></div>
-      </div>
         {/* Content Header (Page header) */}
         <section className="content-header">
           <div className="container-fluid">
             <div className="row mb-2">
               <div className="col-sm-6 mt-4">
-                <h1>Customers</h1>
+                <h1>
+                  <b>Customers</b>
+                </h1>
               </div>
               <div className="col-sm-6">
                 <ol className="breadcrumb float-sm-right">
@@ -61,7 +36,7 @@ export default function CustomerList(props) {
             <div className="row">
               <div className="col-12">
                 <p align="right">
-                  <Link className="btn btn-primary" to="/addcust">
+                  <Link className="btn btn-primary" onClick={props.Add}>
                     Add Customers
                   </Link>
                 </p>
@@ -90,23 +65,20 @@ export default function CustomerList(props) {
                         </tr>
                       </thead>
                       <tbody>
-                        {data.map((value, index, array) => {
+                        {props.Data.map((value, index, array) => {
                           return (
                             <tr>
-                              <td>{value.Id}</td>
-                              <td>{value.Name}</td>
-                              <td>{value.Cnic}</td>
-                              <td>{value.Ntn}</td>
-                              <td>{value.EmailAddress}</td>
-                              <td>{value.Contact}</td>
-                              <td>{value.Address}</td>
-                              <td>{value.Province}</td>
-                              <td>{value.City}</td>
+                              <td>{value.id}</td>
+                              <td>{value.name}</td>
+                              <td>{value.cnic}</td>
+                              <td>{value.ntn}</td>
+                              <td>{value.emailAddress}</td>
+                              <td>{value.contact}</td>
+                              <td>{value.address}</td>
+                              <td>{value.province}</td>
+                              <td>{value.city}</td>
                               <td>
-                                <Link
-                                  className="btn btn-primary m-2"
-                                  to="/editcust"
-                                >
+                                <Link className="btn btn-primary m-2" to="">
                                   Edit
                                 </Link>
                                 <button

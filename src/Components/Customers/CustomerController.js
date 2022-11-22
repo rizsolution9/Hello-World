@@ -1,14 +1,37 @@
 import React, { useState, useEffect } from "react";
 import CustomerList from "./CustomerList";
+import CustomerAddEdit from "./CustomersAddEdit";
+import { Customers } from "../../APIS/CustomerAPIs";
 
 const CustomerController = () => {
-  const [testArray, setTestArray] = useState([]);
+  const [Ui, setUi] = useState(1);
+  const [Data, setData] = useState([]);
+
   useEffect(() => {
-    setTestArray(["Customer 1", "Customer 2"]);
+    Customers()
+      .then((obj) => {
+        setData(obj.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
+
+  const Add = () => {
+    setUi(2);
+  };
+  const Back = () => {
+    setUi(1);
+  };
   return (
     <div>
-      <CustomerList testArray={testArray} setTestArray={setTestArray} HaiderValue={45}></CustomerList>
+      {Ui === 1 ? (
+        <CustomerList Data={Data} Add={Add} />
+      ) : Ui === 2 ? (
+        <CustomerAddEdit Back={Back} />
+      ) : (
+        <h1>Edit Form</h1>
+      )}
     </div>
   );
 };

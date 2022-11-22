@@ -16,7 +16,7 @@ const initialValues = {
   IsCompany: false,
 };
 
-const AddCustomer = () => {
+const CustomerAddEdit = (props) => {
   const {
     values,
     errors,
@@ -59,7 +59,7 @@ const AddCustomer = () => {
 
   return (
     <div className="content-wrapper">
-      <div className="card card-warning">
+      <div className="card card-primary">
         <div className="card-header">
           <h3 className="card-title">
             <b>Add New Customer</b>
@@ -294,10 +294,10 @@ const AddCustomer = () => {
             </div>
           </div>
           <div className="card-footer">
-            <button type="submit" className="btn btn-warning float-right mx-2">
+            <button type="submit" className="btn btn-primary float-right mx-2">
               Add
             </button>
-            <button type="submit" className="btn btn-default float-right">
+            <button type="submit" onClick={props.Back} className="btn btn-default float-right">
               Cancel
             </button>
           </div>
@@ -307,4 +307,4 @@ const AddCustomer = () => {
   );
 };
 
-export default AddCustomer;
+export default CustomerAddEdit;
