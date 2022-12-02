@@ -14,7 +14,9 @@ const SideNav = () => {
             className="brand-image img-circle elevation-3"
             style={{ opacity: ".8" }}
           />
-          <span className="brand-text font-weight-light"><b>Riz Solutions</b></span>
+          <span className="brand-text font-weight-light">
+            <b>Riz Solutions</b>
+          </span>
         </Link>
         {/* Sidebar */}
         <div className="sidebar">
@@ -59,34 +61,11 @@ const SideNav = () => {
             >
               {/* Add icons to the links using the .nav-icon class
          with font-awesome or any other icon font library */}
-              <li className="nav-item menu-open">
-                <a href="#" className="nav-link active">
-                  <i className="nav-icon fas fa-tachometer-alt" />
-                  <p>
-                    Organization
-                    <i className="right fas fa-angle-left" />
-                  </p>
-                </a>
-                <ul className="nav nav-treeview">
-                  <li className="nav-item">
-                    <Link to="/org" className="nav-link active">
-                      <i className="far fa-circle nav-icon" />
-                      <p>Org Table</p>
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to="/add" className="nav-link">
-                      <i className="far fa-circle nav-icon" />
-                      <p>Add a User</p>
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to="/edit" className="nav-link">
-                      <i className="far fa-circle nav-icon" />
-                      <p>Edit a User</p>
-                    </Link>
-                  </li>
-                </ul>
+              <li className="nav-item">
+                <Link to="/organizations" className="nav-link">
+                  <i className="fas fa-circle nav-icon" />
+                  <p>Organizations</p>
+                </Link>
               </li>
 
               {/*Customers details*/}

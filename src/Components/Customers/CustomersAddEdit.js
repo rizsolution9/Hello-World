@@ -5,27 +5,9 @@ import { useFormik } from "formik";
 import { signUpSchema } from "../../Schema/CustomerValidation";
 import PageMode from "../../Helpers/AppConstants";
 
-const initialValues = {
-  Name: "",
-  Cnic: "",
-  Ntn: "",
-  emailAddress: "",
-  Contact: "",
-  Address: "",
-  Province: "",
-  City: "",
-  IsCompany: false,
-};
-
 const CustomerAddEdit = (props) => {
-  const {
-    values,
-    errors,
-    handleBlur,
-    handleChange,
-    handleSubmit,
-  } = useFormik({
-    initialValues: initialValues,
+  const { values, errors, handleBlur, handleChange, handleSubmit } = useFormik({
+    initialValues: props.initialValues,
     validationSchema: signUpSchema,
     onSubmit: (values) => {
       console.log(
@@ -63,7 +45,7 @@ const CustomerAddEdit = (props) => {
       <div className="card card-primary">
         <div className="card-header">
           <h3 className="card-title">
-            <b>Add New Customer</b>
+            <b>{props.title}</b>
           </h3>
         </div>
         <form className="form-horizontal" onSubmit={handleSubmit}>
@@ -80,7 +62,7 @@ const CustomerAddEdit = (props) => {
                   placeholder="Name"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.Name}
+                  value={props.setobj}
                   style={{
                     backgroundImage: 'url("data:image/png',
                     backgroundRepeat: "no-repeat",
@@ -100,7 +82,7 @@ const CustomerAddEdit = (props) => {
                     type="radio"
                     id="radioPrimary1"
                     name="IsCompany"
-                    value={values.IsCompany === true}
+                    value={props.setobj === true}
                     onChange={handleChange}
                   />
                   <label for="radioPrimary1">Individual</label>
@@ -110,7 +92,7 @@ const CustomerAddEdit = (props) => {
                     type="radio"
                     id="radioPrimary2"
                     name="IsCompany"
-                    value={values.IsCompany === false}
+                    value={props.setobj === false}
                     onChange={handleChange}
                   />
                   <label for="radioPrimary2">Company</label>
@@ -127,7 +109,7 @@ const CustomerAddEdit = (props) => {
                   className="form-control"
                   id="Cnic"
                   placeholder="CNIC Number"
-                  value={values.Cnic}
+                  value={props.setobj}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   style={{
@@ -150,7 +132,7 @@ const CustomerAddEdit = (props) => {
                   type="Ntn"
                   className="form-control"
                   id="Ntn"
-                  value={values.Ntn}
+                  value={props.setobj}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   placeholder="NTN Number"
@@ -174,7 +156,7 @@ const CustomerAddEdit = (props) => {
                   type="email"
                   className="form-control"
                   id="emailAddress"
-                  value={values.emailAddress}
+                  value={props.setobj}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   placeholder="Email Address"
@@ -198,7 +180,7 @@ const CustomerAddEdit = (props) => {
                   type="text"
                   className="form-control"
                   id="Contact"
-                  value={values.Contact}
+                  value={props.setobj}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   placeholder="Contact Number"
@@ -222,7 +204,7 @@ const CustomerAddEdit = (props) => {
                   type="Address"
                   className="form-control"
                   id="Address"
-                  value={values.Address}
+                  value={props.setobj}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   placeholder="Residential Address"
@@ -247,7 +229,7 @@ const CustomerAddEdit = (props) => {
                   name="Province"
                   id="Province"
                   onChange={handleChange}
-                  value={values.Province}
+                  value={props.setobj}
                   onBlur={handleBlur}
                   style={{
                     backgroundImage: 'url("data:image/png',
@@ -275,7 +257,7 @@ const CustomerAddEdit = (props) => {
                   name="City"
                   id="City"
                   onChange={handleChange}
-                  value={values.City}
+                  value={props.setobj}
                   onBlur={handleBlur}
                   style={{
                     backgroundImage: 'url("data:image/png',
@@ -298,7 +280,11 @@ const CustomerAddEdit = (props) => {
             <button type="submit" className="btn btn-primary float-right mx-2">
               Add
             </button>
-            <button type="submit" onClick={()=>props.setPageMode(PageMode.LIST)} className="btn btn-default float-right">
+            <button
+              type="submit"
+              onClick={() => props.setPageMode(PageMode.LIST)}
+              className="btn btn-default float-right"
+            >
               Cancel
             </button>
           </div>

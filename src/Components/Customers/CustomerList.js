@@ -37,7 +37,10 @@ export default function CustomerList(props) {
             <div className="row">
               <div className="col-12">
                 <p align="right">
-                  <Link className="btn btn-primary" onClick={()=>props.setPageMode(PageMode.ADD)}>
+                  <Link
+                    className="btn btn-primary"
+                    onClick={() => props.setPageMode(PageMode.ADD)}
+                  >
                     Add Customers
                   </Link>
                 </p>
@@ -79,7 +82,12 @@ export default function CustomerList(props) {
                               <td>{value.province}</td>
                               <td>{value.city}</td>
                               <td>
-                                <Link className="btn btn-primary m-2" to="">
+                                <Link
+                                  className="btn btn-primary m-2"
+                                  onClick={() =>
+                                    props.setPageMode(PageMode.EDIT)
+                                  }
+                                >
                                   Edit
                                 </Link>
                                 <button

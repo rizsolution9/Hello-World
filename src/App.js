@@ -4,13 +4,11 @@ import SideNav from "./Admin/SideNav";
 import Header from "./Admin/Header";
 import Home from "./Admin/Home";
 import Footer from "./Admin/Footer";
-import Table from "./Components/Org";
 import PageNotFound from "./Components/PageNotFound";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import EditOrg from './Components/EditOrg';
 import Form from "./Admin/Form";
-import AddOrg from "./Components/AddOrg";
 import CustomerController from "./Components/Customers/CustomerController";
+import OrganizationController from "./Components/Organizations/OrganizationsController";
 
 function App() {
   return (
@@ -19,10 +17,12 @@ function App() {
       <SideNav />
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path="/org" element={<Table />} />
-        <Route exact path="/add" element={<AddOrg/>} />
-        <Route exact path="/edit" element={<EditOrg />} />
-        <Route exact path="/form" element={<Form/>} />
+        <Route
+          exact
+          path="/organizations"
+          element={<OrganizationController />}
+        />
+        <Route exact path="/form" element={<Form />} />
         <Route path="*" element={<PageNotFound />} />
         <Route path="/customers" element={<CustomerController />} />
       </Routes>
